@@ -1,0 +1,10 @@
+ecommerce\Ecommerce.class
+services\PedidoService.class
+controllers\ProdutoController.class
+models\Produto.class
+controllers\PedidoController.class
+services\UsuarioService.class
+controllers\UsuarioController.class
+models\Pedido.class
+models\Usuario.class
+services\ProdutoService.class
