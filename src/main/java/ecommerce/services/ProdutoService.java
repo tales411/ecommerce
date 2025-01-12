@@ -1,9 +1,11 @@
-package services;
+package ecommerce.services;
 
-import models.Produto;
+import ecommerce.models.Produto;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
+@Service // Essa anotação é necessária para que o Spring gerencie a classe
 public class ProdutoService {
     private List<Produto> produtos = new ArrayList<>(); // Lista de produtos em memória
     private Long idAtual = 1L; // Gerador de IDs para produtos

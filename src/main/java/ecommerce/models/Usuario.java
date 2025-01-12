@@ -1,4 +1,4 @@
-package models;
+package ecommerce.models;
 public class Usuario {
     private Long id; // Identificador único do usuário
     private String nome; // Nome do usuário

@@ -1,7 +1,7 @@
-package services;
+package ecommerce.services;
 
-import models.Pedido;
-import models.Produto;
+import ecommerce.models.Pedido;
+import ecommerce.models.Produto;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package controllers;
+package ecommerce.controllers;
 
-import models.Produto;
-import services.ProdutoService;
+import ecommerce.models.Produto;
+import ecommerce.services.ProdutoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

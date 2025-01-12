@@ -1,6 +1,6 @@
-package services;
+package ecommerce.services;
 
-import models.Usuario;
+import ecommerce.models.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 
