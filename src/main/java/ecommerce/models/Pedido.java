@@ -1,10 +1,26 @@
 package ecommerce.models;
+
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Pedido {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // Identificador único do pedido
-    private Long usuarioId; // Referência ao usuário que fez o pedido
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario; // Referência ao usuário que fez o pedido
+
+    @ManyToMany
+    @JoinTable(
+        name = "pedido_produto", // Nome da tabela intermediária
+        joinColumns = @JoinColumn(name = "pedido_id"),
+        inverseJoinColumns = @JoinColumn(name = "produto_id")
+    )
     private List<Produto> produtos = new ArrayList<>(); // Produtos adicionados ao pedido
 
     // Getters e Setters
@@ -16,12 +32,12 @@ public class Pedido {
         this.id = id;
     }
 
-    public Long getUsuarioId() {
-        return usuarioId;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsuarioId(Long usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public List<Produto> getProdutos() {
