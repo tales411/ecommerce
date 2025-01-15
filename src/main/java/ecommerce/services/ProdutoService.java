@@ -1,27 +1,29 @@
 package ecommerce.services;
 
 import ecommerce.models.Produto;
-import java.util.ArrayList;
-import java.util.List;
+import ecommerce.repositories.ProdutoRepository;
 import org.springframework.stereotype.Service;
 
-@Service // Essa anotação é necessária para que o Spring gerencie a classe
+import java.util.List;
+
+@Service
 public class ProdutoService {
-    private List<Produto> produtos = new ArrayList<>(); // Lista de produtos em memória
-    private Long idAtual = 1L; // Gerador de IDs para produtos
+    private final ProdutoRepository produtoRepository;
+
+    public ProdutoService(ProdutoRepository produtoRepository) {
+        this.produtoRepository = produtoRepository;
+    }
 
     // Criar um novo produto
     public Produto criarProduto(String nome, Double preco) {
         Produto produto = new Produto();
-        produto.setId(idAtual++);
         produto.setNome(nome);
         produto.setPreco(preco);
-        produtos.add(produto);
-        return produto;
+        return produtoRepository.save(produto); // Salva no banco de dados
     }
 
     // Listar todos os produtos
     public List<Produto> listarProdutos() {
-        return produtos;
+        return produtoRepository.findAll(); // Busca todos os produtos do banco
     }
 }

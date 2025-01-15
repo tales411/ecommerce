@@ -1,10 +1,13 @@
-ecommerce\controllers\ProdutoController.class
 ecommerce\Ecommerce.class
-ecommerce\services\PedidoService.class
-ecommerce\models\Pedido.class
+ecommerce\repositories\ProdutoRepository.class
 ecommerce\services\ProdutoService.class
+ecommerce\repositories\PedidoRepository.class
 ecommerce\models\Usuario.class
 ecommerce\models\Produto.class
+ecommerce\repositories\UsuarioRepository.class
 ecommerce\controllers\PedidoController.class
 ecommerce\controllers\UsuarioController.class
+ecommerce\controllers\ProdutoController.class
+ecommerce\services\PedidoService.class
+ecommerce\models\Pedido.class
 ecommerce\services\UsuarioService.class

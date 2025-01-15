@@ -11,7 +11,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/pedidos")
 public class PedidoController {
-    private final PedidoService pedidoService = new PedidoService();
+    private final PedidoService pedidoService;
+
+    // Injeção de dependência via construtor
+    public PedidoController(PedidoService pedidoService) {
+        this.pedidoService = pedidoService;
+    }
 
     @PostMapping
     public Pedido criarPedido(@RequestBody Usuario usuario) {

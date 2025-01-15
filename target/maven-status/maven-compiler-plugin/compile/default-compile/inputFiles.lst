@@ -1,10 +1,13 @@
-C:\Users\Pichau\Documents\NetBeansProjects\ecommerce\src\main\java\ecommerce\Ecommerce.java
 C:\Users\Pichau\Documents\NetBeansProjects\ecommerce\src\main\java\ecommerce\models\Usuario.java
-C:\Users\Pichau\Documents\NetBeansProjects\ecommerce\src\main\java\ecommerce\services\ProdutoService.java
-C:\Users\Pichau\Documents\NetBeansProjects\ecommerce\src\main\java\ecommerce\controllers\UsuarioController.java
 C:\Users\Pichau\Documents\NetBeansProjects\ecommerce\src\main\java\ecommerce\services\PedidoService.java
 C:\Users\Pichau\Documents\NetBeansProjects\ecommerce\src\main\java\ecommerce\controllers\ProdutoController.java
 C:\Users\Pichau\Documents\NetBeansProjects\ecommerce\src\main\java\ecommerce\models\Pedido.java
 C:\Users\Pichau\Documents\NetBeansProjects\ecommerce\src\main\java\ecommerce\controllers\PedidoController.java
+C:\Users\Pichau\Documents\NetBeansProjects\ecommerce\src\main\java\ecommerce\repositories\PedidoRepository.java
+C:\Users\Pichau\Documents\NetBeansProjects\ecommerce\src\main\java\ecommerce\Ecommerce.java
+C:\Users\Pichau\Documents\NetBeansProjects\ecommerce\src\main\java\ecommerce\services\ProdutoService.java
+C:\Users\Pichau\Documents\NetBeansProjects\ecommerce\src\main\java\ecommerce\controllers\UsuarioController.java
+C:\Users\Pichau\Documents\NetBeansProjects\ecommerce\src\main\java\ecommerce\repositories\ProdutoRepository.java
+C:\Users\Pichau\Documents\NetBeansProjects\ecommerce\src\main\java\ecommerce\repositories\UsuarioRepository.java
 C:\Users\Pichau\Documents\NetBeansProjects\ecommerce\src\main\java\ecommerce\services\UsuarioService.java
 C:\Users\Pichau\Documents\NetBeansProjects\ecommerce\src\main\java\ecommerce\models\Produto.java

@@ -3,57 +3,48 @@ package ecommerce.services;
 import ecommerce.models.Pedido;
 import ecommerce.models.Produto;
 import ecommerce.models.Usuario;
-import java.util.ArrayList;
+import ecommerce.repositories.PedidoRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
+@Service
 public class PedidoService {
 
-    private List<Pedido> pedidos = new ArrayList<>(); // Lista de pedidos em memória
-    private Long idAtual = 1L; // Gerador de IDs para pedidos
+    private final PedidoRepository pedidoRepository;
 
-    // Criar um novo pedido para um usuário
+    public PedidoService(PedidoRepository pedidoRepository) {
+        this.pedidoRepository = pedidoRepository;
+    }
+
+    @Transactional // Gerencia transações automaticamente
     public Pedido criarPedido(Usuario usuario) {
         Pedido pedido = new Pedido();
-        pedido.setId(idAtual++);
-        pedido.setUsuario(usuario); // Associa o objeto Usuario ao pedido
-        pedidos.add(pedido);
-        return pedido;
+        pedido.setUsuario(usuario);
+        return pedidoRepository.save(pedido); // Salva o pedido no banco de dados
     }
 
-    // Adicionar um produto ao pedido
+    @Transactional
     public void adicionarProdutoAoPedido(Long pedidoId, Produto produto) {
-        Pedido pedido = buscarPedidoPorId(pedidoId);
+        Pedido pedido = pedidoRepository.findById(pedidoId).orElse(null);
         if (pedido != null) {
             pedido.adicionarProduto(produto);
+            pedidoRepository.save(pedido); // Atualiza o pedido no banco de dados
         }
     }
 
-    // Remover um produto do pedido
+    @Transactional
     public void removerProdutoDoPedido(Long pedidoId, Produto produto) {
-        Pedido pedido = buscarPedidoPorId(pedidoId);
+        Pedido pedido = pedidoRepository.findById(pedidoId).orElse(null);
         if (pedido != null) {
             pedido.removerProduto(produto);
+            pedidoRepository.save(pedido); // Atualiza o pedido no banco de dados
         }
     }
 
-    // Listar todos os pedidos de um usuário
+    @Transactional(readOnly = true)
     public List<Pedido> listarPedidosPorUsuario(Usuario usuario) {
-        List<Pedido> resultado = new ArrayList<>();
-        for (Pedido pedido : pedidos) {
-            if (pedido.getUsuario().equals(usuario)) { // Compara o objeto Usuario
-                resultado.add(pedido);
-            }
-        }
-        return resultado;
-    }
-
-    // Buscar pedido pelo ID
-    private Pedido buscarPedidoPorId(Long pedidoId) {
-        for (Pedido pedido : pedidos) {
-            if (pedido.getId().equals(pedidoId)) {
-                return pedido;
-            }
-        }
-        return null; // Se não encontrar, retorna null
+        return pedidoRepository.findByUsuario(usuario);
     }
 }
