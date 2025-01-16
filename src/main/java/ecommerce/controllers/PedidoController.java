@@ -20,7 +20,6 @@ public class PedidoController {
 
     @PostMapping
     public Pedido criarPedido(@RequestBody Usuario usuario) {
-        // Agora recebe um objeto Usuario no corpo da requisição
         return pedidoService.criarPedido(usuario);
     }
 
@@ -36,9 +35,14 @@ public class PedidoController {
 
     @GetMapping("/usuario/{usuarioId}")
     public List<Pedido> listarPedidosPorUsuario(@PathVariable Long usuarioId) {
-        // Cria um objeto Usuario fictício apenas para teste
         Usuario usuario = new Usuario();
         usuario.setId(usuarioId);
         return pedidoService.listarPedidosPorUsuario(usuario);
+    }
+
+    // Novo endpoint para calcular o valor total de um pedido
+    @GetMapping("/{pedidoId}/valor-total")
+    public Double calcularValorTotal(@PathVariable Long pedidoId) {
+        return pedidoService.calcularValorTotal(pedidoId);
     }
 }
